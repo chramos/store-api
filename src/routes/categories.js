@@ -5,8 +5,8 @@ const router = express.Router();
 const category = require('../controllers/CategoryController');
 
 router.get('/', (req, res, next) => {
-    category.get().then((result) => {
-        res.status(200).send(result);
+    category.get(req.query).then((result) => {
+         res.status(200).send(result);
     })
 });
 

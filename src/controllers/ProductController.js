@@ -18,7 +18,7 @@ module.exports = {
             request.category.forEach((category) => {
                 categories.push(category._id);
             });
-            
+
         } else {
             categories.push(request.category);
         }
@@ -32,11 +32,17 @@ module.exports = {
 
         return result;
     },
+
+    getById: (id) => {
+        return Product.findById(id);
+    },
+
     store: (request) => {
         const product = new Product(request);
         product.save()
         return true;
     },
+    
     destroy: (id) => {
         return Product.findByIdAndRemove(id);
     }

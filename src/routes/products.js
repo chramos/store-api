@@ -10,6 +10,12 @@ router.get('/', (req, res, next) => {
     })
 });
 
+router.get('/:id', (req, res, next) => {
+    product.getById(req.params.id).then((result) => {
+        res.status(200).send(result);
+    })
+});
+
 router.post('/', (req, res, next) => {
     if (product.store(req.body)) {
         res.status(200).send(true);

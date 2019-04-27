@@ -4,7 +4,7 @@ const auth = require('../middleware/auth');
 
 const product = require('../controllers/ProductController');
 
-router.get('/', auth, (req, res, next) => {
+router.get('/', (req, res, next) => {
     product.get(req.query).then((result) => {
         res.status(200).send(result);
     })

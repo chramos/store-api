@@ -28,6 +28,25 @@ router.post('/register', (req, res, next) => {
     users.register(req.body).then((response) => {
         res.status(200).json(response);
     });
-})
+});
+
+router.post('/recover-password', (req, res, next) => {
+    users.recover(req.body).then((response) => {
+        res.status(200).json(response);
+    });
+});
+
+//Verificar o se o token é valido
+router.get('/recover-password', (req, res, next) => {
+    users.recoverVerifyToken(req.query).then((response) => {
+        res.status(200).json(response);
+    });
+});
+
+router.post('/change-password', (req, res, next) => {
+    users.changePassword(req.body).then((response) => {
+        res.status(200).json(response);
+    });
+});
 
 module.exports = router;

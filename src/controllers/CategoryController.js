@@ -2,11 +2,11 @@ const Category = require('../models/Category');
 
 module.exports = {
     get: (request) => {
-        return Category.find({
-            name: (request.name !== undefined) ? 
-            { $regex: RegExp("^" + request.name, "i") } : 
-            { $regex: RegExp("^.", "i") }
-        });
+        if (request.name !== undefined) {
+            return Category.findOne({ name: { $regex: RegExp("^" + request.name, "i") } });
+        }
+
+        return Category.find({});
         
     },
     store: (request) => {

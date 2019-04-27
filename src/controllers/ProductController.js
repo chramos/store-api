@@ -12,6 +12,8 @@ module.exports = {
 
         const categories = [];
 
+        console.log(request);
+
         if(request.category === undefined) {
             request.category = await Category.find({});
 
@@ -42,7 +44,7 @@ module.exports = {
         product.save()
         return true;
     },
-    
+
     destroy: (id) => {
         return Product.findByIdAndRemove(id);
     }

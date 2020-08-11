@@ -1,13 +1,16 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost:27017/homestead', {useNewUrlParser: true})
+mongoose.connect(
+  "mongodb+srv://admin:admin1234>@cluster0.6gy2a.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  { useNewUrlParser: true }
+);
 
-const db = mongoose.connection
+const db = mongoose.connection;
 
-db.once('open', () => {
-    console.log('MongoDB database connected')
-}).on('error', (err) => {
-    console.log(err)
+db.once("open", () => {
+  console.log("MongoDB database connected");
+}).on("error", (err) => {
+  console.log(err);
 });
 
-module.exports= mongoose
+module.exports = mongoose;
